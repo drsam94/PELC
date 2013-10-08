@@ -1,0 +1,28 @@
+<html>
+	<head>
+		<script>
+			amounts = new Array(1, 2, 5, 10, 20, 50, 100);
+			ways = 1; //accounts for the 2 pound coin
+
+			function helper(amountIndex, inheritedAmount) {
+				for (var i = 0; i <= 200; ++i) {
+					current = inheritedAmount + (i * amounts[amountIndex]);
+					if (current > 200) {
+						break;
+					} else if (current == 200) {
+						ways++;
+						break;
+					} else if (amountIndex < amounts.length - 1) {
+						helper(amountIndex + 1, current);
+					}
+				}
+			}
+
+			function euler31() {
+				helper(0,0);	
+				alert(ways);
+			}
+		</script>
+	</head>
+	<body onload="euler31()" />
+</html>

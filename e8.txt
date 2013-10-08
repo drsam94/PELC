@@ -1,0 +1,5 @@
+9 * 9 * 8 * 7 * 9
+
+Solution:
+
+If you look at the picture, its pretty clear that this is the greatest product

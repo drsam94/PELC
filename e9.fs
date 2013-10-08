@@ -1,0 +1,9 @@
+: NUMS BEGIN DUP 1 - DUP 1 =  UNTIL ;
+: NEWTON { t x } t x t / + 2 / DUP t ;
+: SQRT { x } x 2 / BEGIN x NEWTON SWAP - 2 < UNTIL ;
+: ISSQUARE { x } x SQRT DUP * x = ;
+: CSQUARED { a b } a a * b b * + ;
+: TEST { a b } a b CSQUARED ISSQUARE IF a b a b CSQUARED SQRT + + 1000 = IF a b a b CSQUARED SQRT * * . CR bye THEN THEN ;
+: INNERLOOP { a } 800 NUMS BEGIN DUP a TEST 800 = UNTIL ;
+: OUTERLOOP 800 NUMS BEGIN INNERLOOP DUP 800 = UNTIL ;  
+OUTERLOOP

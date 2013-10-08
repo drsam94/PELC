@@ -1,0 +1,56 @@
+open Printf
+
+let dlist y =
+let rec digilist x l =
+    if x < 10 then x :: l 
+    else (digilist (x / 10) ((x mod 10) :: l)) in
+    digilist y [];;
+
+let cdigs y =
+let rec concatdigits l x =
+    if l = [] then x 
+    else concatdigits (List.tl l) (x * 10 + (List.hd l)) in
+    concatdigits y 0;;
+
+let isPrime x = 
+let rec checkPrime y n = 
+    if n * n > y then true 
+    else if y mod n = 0 then false else checkPrime y (n +1) in
+    checkPrime x 2;;
+
+let rec rem x l = if l = [] then [] else if (List.hd l) = x then (List.tl l) 
+                     else (List.hd l) :: (rem x (List.tl l));;
+
+let rec permuts elems =
+    if (List.tl elems) = [] then [[List.hd elems]] else 
+    List.concat (List.map (fun (x) -> (List.map (fun (l) -> x :: l) 
+                (permuts (rem x elems)))) elems);;
+    
+let rec validArith n perms =
+    let rec helper n2 dif rest = 
+        if rest = [] then []
+        else if (List.hd rest) - n2 = dif then n :: n2 :: [List.hd rest]
+        else helper n2 dif (List.tl rest) in
+    if (List.length perms) = 1 then []
+    else let help = helper (List.hd perms) ((List.hd perms) - n) (List.tl perms) in
+        if List.length help = 3 then help
+        else validArith n (List.tl perms);; 
+    
+let rec compress = function
+    | a :: (b :: _ as t) -> if a = b then compress t else a :: compress t
+    | smaller -> smaller;;
+
+let rec findans n =
+    if n = 10000 then [] else
+    if isPrime n then
+    let pperms = (List.filter (fun (z) -> z >= n) (compress (List.sort (fun x y -> x - y) 
+        (List.filter isPrime (List.map cdigs (permuts (dlist n))))))) in
+        if (List.length pperms) >= 3  && (n != 1487) && 
+            (List.length (validArith (List.hd pperms) (List.tl pperms)) = 3)
+            
+        then validArith (List.hd pperms) (List.tl pperms)
+        else findans (n + 1)
+    else findans (n + 1);; 
+
+List.iter (printf "%d") (findans 1100);
+print_string "\n"

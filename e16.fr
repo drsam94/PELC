@@ -1,0 +1,8 @@
+num = 2^1000
+digisum = 0
+while num > 0 
+{
+    digisum = digisum + (num % 10)
+    num = num div 10
+}
+println[digisum]

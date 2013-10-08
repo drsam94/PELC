@@ -1,0 +1,21 @@
+<html>
+    <head>
+        <script>
+            function euler9() {
+                for (var a = 100; a < 800; ++a) {
+                    for (var b = 100; b < 800; ++b) {
+                        var c = Math.sqrt(a*a + b*b)
+                        if (Math.round(c) == c) {
+                            if (a + b + c == 1000) {
+                                alert(a * b * c)
+                            }
+                        }
+                    }
+                }
+            }
+        </script>
+    </head>
+
+<body onload='euler9()'>
+</body>
+</html>

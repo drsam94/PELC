@@ -1,0 +1,7 @@
+16*9*5*7*11*13*17*19
+
+Solution:
+
+We need to find a number divisible by the integers 1,...20.
+
+So, just list all the prime factors (with multiplicities) of each of these numbers - the solution is the product of all the prime factors, using for each prime factor the highest occuring multiplicity.

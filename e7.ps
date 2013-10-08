@@ -1,0 +1,47 @@
+/isPrime
+{
+    
+    /x exch def
+    /more
+    {
+        dup 1 add x sqrt floor le
+        {
+            dup 1 add more
+        } if
+    } def
+    1 more
+    /retval true def
+    /check
+    {
+        dup 1 eq not
+        {
+            x exch mod 0 eq
+            {
+                /retval false def
+                %/poppin { dup 1 eq not { pop poppin } if } def
+                %poppin
+            }
+            if
+            check
+        }
+        { pop }ifelse
+    }
+    def check retval
+} def
+
+/counter 0 def
+/current 2 def
+/euler7
+{
+    current isPrime 
+    {
+        /counter 1 counter add def
+    } if
+    counter 10001 eq not
+    {
+        /current 1 current add def
+        euler7
+    } if
+} def
+euler7 current pstack
+

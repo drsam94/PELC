@@ -1,0 +1,11 @@
+It can be observed that if we number the rings with odd numbers n (1,3,5..), then (not counting the innermost ring), the numbers in the corner of the nth ring are:
+(n - 2)^2 + (n - 1), (n - 2)^2 + 2*(n - 1), (n - 2)^2 + 3*(n - 1), (n - 2)^2 + 4*(n - 1)
+
+taking the sum of these numbers and converting to a more reasonable index n (0,1,2,..) we get that the sum of the corners in the nth ring (for n &gt; 0) is
+
+4*(2(n-1) + 1)^2 + 20n
+
+moving some terms around and adding in a 1 for the innermost ring, we get that the sum of the corners of the first 501 rings (and thus the sum of the diagonals of the 1001x1001 spiral) is
+
+1 + 4*sum{from n = 1 to 500} (4n^2 + n + 1)
+

@@ -1,0 +1,56 @@
+
+function isPrime(x)
+    if x < 2 || x % 2 == 0
+        return x == 2
+    end
+    i = 3
+    while i * i <= x
+        if x % i == 0
+            return false
+        end
+        i += 1
+    end
+    return true
+end
+
+primes = [2]
+for i = 3:10000
+    if isPrime(i)
+        primes = [primes..., i]
+    end
+end
+
+squares = [0]
+for i = 1:1000
+    squares = [squares..., i * i]
+end
+
+x = 7
+while true
+    gotans = false
+    for p in primes
+        done = false
+        if p > x
+            println(x)
+            gotans = true
+            break
+        end
+        for s in squares
+            if x == p + 2*s
+                done = true
+                break
+            end
+            if p + 2*s > x
+                break
+            end
+        end
+        if done
+            break
+        end
+    end
+    if gotans
+        break
+    end
+    x += 2
+end
+ 

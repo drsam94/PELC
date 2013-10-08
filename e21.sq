@@ -1,0 +1,27 @@
+
+
+function sumOfDivisors(x)
+{
+    local sum = 0;
+    if (x == (sqrt(x).tointeger()*sqrt(x).tointeger())) {
+        sum += sqrt(x).tointeger(); 
+    }
+    for (local i = 2; i < sqrt(x); i +=1) {
+        if (x % i == 0) {
+            sum += i + (x / i);
+        }
+    }
+    //only proper divisors - we do not count the number itself
+    return sum + 1;
+} 
+
+local sum = 0;
+for (local i = 3; i < 10000; i +=1) {
+    local j = sumOfDivisors(i);
+    if (i != j && sumOfDivisors(j) == i) {
+        sum += i;
+        print(i + ", " + j + "\n");
+    }
+}
+::print(sum.tostring() + "\n");
+

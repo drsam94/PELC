@@ -1,0 +1,8 @@
+The nth fibonacci number can be expressed as fib(n) = (phi^n + (-phi)^-n / sqrt(5)), where phi=1.618... is the golden ratio.
+As n is large, the second term in the sum is nearly 0, so we need only find the smallest integer n such that
+
+phi^n / sqrt(5) > 10^999
+
+Solving for n gives
+
+n = ceil ( 999 * log_phi (10) + log_phi(sqrt(5)) )

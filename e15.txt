@@ -1,0 +1,5 @@
+37 * 31 * 29 * 7 * 26 * 5 * 6 * 23 * 11 * 3
+
+Solution:
+
+The solution is just 40 choose 20 - above is just the expression for 40 choose 20, simplified by cancellation so that it is easier to compute.
