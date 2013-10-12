@@ -1,0 +1,48 @@
+
+function digits(x) {
+    local arr = [];
+    while (x > 0) {
+        arr.append(x % 10);
+        x /= 10;
+    }
+    return arr;
+}
+
+function arePermuts(x, y) {
+    local xdigs = digits(x);
+    local ydigs = digits(y);
+    xdigs.sort(@(a,b) a <=> b);
+    ydigs.sort(@(a,b) a <=> b);
+    if (xdigs.len() == ydigs.len()) {
+        for (local i = 0; i < xdigs.len(); ++i) {
+            if (xdigs[i] != ydigs[i]) {
+                return false;
+            }
+        }
+        return true;
+    }
+    return false;
+}
+
+function mag(x) {
+    if (x < 10) {
+        return 10;
+    } else {
+        return 10 * mag(x / 10);
+    }
+}
+
+local n = 1;
+for(;;) {
+    if (mag(n) < mag(6*n)) {
+        n = mag(n);
+    } else {
+        if (arePermuts(n, 2*n) && arePermuts(2*n, 3*n) && arePermuts(3*n, 4*n) &&
+            arePermuts(4*n, 5*n) && arePermuts(5*n, 6*n)) {
+                print(n + "\n");
+                break;
+        } else {
+            n += 1;
+        }
+    }
+}
