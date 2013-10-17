@@ -1,0 +1,51 @@
+
+function rev(x) {
+    local r = 0;
+    while (x > 0) {
+        r = r*10 + x%10;
+        x /= 10;
+    }
+    return r;
+}
+
+function digits(x) {
+    local arr = [];
+    while (x > 0) {
+        arr.append(x % 10);
+        x /= 10;
+    }
+    return arr;
+}
+
+function isPalindrome(x) {
+    local digs = digits(x);
+    for (local i = 0; i < (digs.len() + 1) / 2; ++i) {
+        if (digs[i] != digs[digs.len() - i - 1]) {
+            return false;
+        }
+    }
+    return true;
+}
+
+function isLycherel(x) {
+    for (local i = 0; i < 50; ++i) {
+        x += rev(x);
+        if (x < 0) {
+            return true;
+        }
+        if (isPalindrome(x)) {
+            return false;
+        }
+    }
+    return true;
+}
+
+
+local ans = 0;
+for (local i = 1; i < 10000; ++i) {
+    if (isLycherel(i)) {
+        ++ans;
+    }
+}
+print(ans + "\n");
+    
