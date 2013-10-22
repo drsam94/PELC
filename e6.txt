@@ -1,0 +1,12 @@
+
+The square of the sum of the first 100 natural numbers is easy to compute with the formula
+for triangular numbers and a calculator:
+
+(1 + 2 + 3 + ... + 100)^2 = (100(101) / 2)^2 = 5050^2 = 25502500
+
+Now, there is also a nice closed form expression for the sum of the first n squares, and
+applying it gives
+
+1^2 + 2^2 + 3^2 + ... + 100^2 = 100(101)(201)/6 = 338350
+And if we find the difference between these quantities, we find that the answer is
+25502500 - 338500 = 25164150
