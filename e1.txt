@@ -1,0 +1,18 @@
+
+We first note that "the sum of all the multiples of 3 or 5" below 1000 is equivalent to:
+(sum mult(3)) + (sum mult(5)) - (sum mult(15))
+Now, what are these quantities?
+The sum of all multiples of 3 below 1000 is just
+3 + 6 + 9 + ... 999 = 3(1 + 2 + 3 + ... + 333)
+Similar, mults of 5 are
+5(1 + 2 + 3 + ... + 199)
+and of 15
+15(1 + 2 + 3 + ... + 66)
+
+Now, these sums are just triangle numbers
+(1 + 2 + 3 + ... + 333) = 333(334) / 2 = 55611
+(1 + 2 + 3 + ... + 199) = 199(200) / 2 = 19900
+(1 + 2 + 3 + ... + 66)  = 66(67)   / 2 = 2211
+
+So, the solution is just
+3*55611 + 5*20100 - 15*2211 = 233168
