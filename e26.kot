@@ -1,0 +1,27 @@
+import java.util.Collections.*
+fun biggestCycle(d: Int): Int {
+  val rems: Array<Int> = Array<Int>(1000){i -> 0}
+  var r: Int = 1
+  var i: Int = 0
+  while (r != 0) {
+    r = (r * 10) % d
+    for (j in 0..i) {
+      if (rems[j] == r) {
+        return i
+      }
+    }
+    rems[i++] = r
+  }
+  return i
+}
+  
+  
+fun main(args : Array<String>) {
+  var ans = 0
+  for (d in 1..1000) {
+    if (ans < biggestCycle(d)) {
+      ans = d
+    } 
+  }
+  println(ans)
+}
