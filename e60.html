@@ -64,7 +64,10 @@ function finishSet(set, target, start) {
                 cset = scopy(set)
                 cset.push(p)
                 test = finishSet(cset,target,i)
-                target = test < target ? test : target
+                if (test < target) {
+                    target = test
+                    break
+                }
             }
         }
     }
