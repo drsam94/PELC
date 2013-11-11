@@ -1,0 +1,81 @@
+<html>
+<head>
+<script>
+
+function isPrime(x) {
+    if (x < 2) {
+        return false
+    } else if (x % 2 == 0) {
+        return x == 2
+    }
+
+    for (var i = 3; i * i <= x; ++i) {
+        if (x % i == 0) {
+            return false;
+        }
+    }
+    return true;
+}
+function mag(x) {
+    return x < 10 ? 10 : 10 * mag(x / 10)
+}
+function concat(x, y) {
+    return x * mag(y) + y
+}
+
+function getPrimes(N) {
+    p = new Array()
+    for (var i = 2; i <= N; ++i) {
+        if (isPrime(i)) {
+            p.push(i)
+        }
+    }
+    return p
+}
+
+function satisfies(p,s) {
+    for (var i = 0; i < s.length; ++i) {
+        if (!(isPrime(concat(s[i],p)) && isPrime(concat(p,s[i])))) {
+            return false
+        }
+    }
+    return true
+}
+function setSum(set) {
+    sum = 0;
+    for (var i = 0; i < set.length; ++i) {
+        sum += set[i]
+    }
+    return sum 
+}
+function scopy(set) {
+    return set.slice(0)
+}
+
+primes = getPrimes(10000)
+function finishSet(set, target, start) {
+    if (set.length == 5) {
+        test = setSum(set)
+        return test < target ? test : target
+    } else {
+        for (var i = start; i < primes.length; ++i) {
+            p = primes[i]
+            if (satisfies(p,set)) {
+                cset = scopy(set)
+                cset.push(p)
+                test = finishSet(cset,target,i)
+                target = test < target ? test : target
+            }
+        }
+    }
+    return target
+}
+function euler60() {
+    ans = finishSet(new Array(),10000000,0)
+    console.log(ans)
+    alert(ans)
+}
+</script>
+</head>
+<body onload="euler60()" />
+</html>
