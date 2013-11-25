@@ -1,0 +1,50 @@
+fun int isPrime(int x) {
+    if (x < 2) {
+        return 0;
+    } else if (x % 2 == 0) {
+        return x == 2;
+    }
+
+    for (3 => int i; i * i <= x; 2+=>i) {
+        if (x % i == 0) {
+            return 0;
+        }
+    }
+    return 1;
+}
+
+fun int mag(int x) {
+    if (x < 10) {
+        return 1;
+    } else {
+        return 10 * mag(x/10);
+    }
+}
+
+fun int rotate(int x) {
+    x % 10 => int d;
+    return (d * mag(x)) + (x / 10);
+}
+
+fun int isCircPrime(int x) {
+    if (!isPrime(x)) {
+        return 0;
+    }
+    x => rotate => int r;
+    while (x != r) {
+        if (!isPrime(r)) {
+            return 0;
+        }
+        r => rotate => r;
+    }
+    return 1;
+}
+
+//main
+0 => int ans;
+for (0 => int i; i < 1000000; ++i) {
+    if (isCircPrime(i)) {
+        ++ans;
+    }
+}
+<<<ans>>>;
