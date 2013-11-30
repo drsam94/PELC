@@ -1,0 +1,4 @@
+The ratio of the value of the totient n / phi(n) will be maximized
+when n is primorial, the product of the first however many primes
+The largest primorial below 10^6 is:
+2*3*5*7*11*13*17 = 510510
