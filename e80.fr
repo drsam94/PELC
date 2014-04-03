@@ -1,0 +1,26 @@
+
+digisum = 0
+
+for n = 2 to 100 
+{
+    if floor[sqrt[n]] * floor[sqrt[n]] < n 
+    {
+        p = 0
+        c = n
+        for i = 0 to 99 
+        {
+            x = 0
+            do
+            {
+                x = x + 1
+                y = x*(20*p + x)
+            } while y <= c
+            x = x - 1
+            y = x*(20*p + x)
+            digisum = digisum + x
+            p = p*10 + x
+            c = (c - y) * 100
+        }
+    }
+}
+println[digisum]
