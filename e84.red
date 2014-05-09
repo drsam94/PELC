@@ -2,14 +2,12 @@
 lastrand: 25
 lastrand2: 17
 lastrand3: 59049
-lastrand4: 9
 rand: func [ 
     return: [integer!] 
 ] [
     lastrand: (lastrand * 5) // 163847
     lastrand2: (lastrand2 * 17) // 8191
     lastrand3: (lastrand3 * 3) // 104743
-    lastrand4: (lastrand4 * 3) // 224743
     lastrand xor lastrand2 xor lastrand3
 ]
  
