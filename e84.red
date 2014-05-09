@@ -1,10 +1,16 @@
 
-lastrand: 8191
+lastrand: 25
+lastrand2: 17
+lastrand3: 59049
+lastrand4: 9
 rand: func [ 
     return: [integer!] 
 ] [
-    lastrand: ((lastrand * 6752) + 23) % 32767
-    lastrand
+    lastrand: (lastrand * 5) // 163847
+    lastrand2: (lastrand2 * 17) // 8191
+    lastrand3: (lastrand3 * 3) // 104743
+    lastrand4: (lastrand4 * 3) // 224743
+    lastrand xor lastrand2 xor lastrand3
 ]
  
 squares: [0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0]
@@ -13,7 +19,7 @@ pos: 0
 turn: 0
 ccn: 0
 chn: 0
-while [turn < 1000000] [
+while [turn < 200000] [
     goagain: true
     dubcount: 0
     while [goagain] [
