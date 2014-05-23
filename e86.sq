@@ -1,0 +1,85 @@
+
+local cuboids = [];
+
+for (local i = 0; i < 2000; ++i) {
+    cuboids.append(0);
+}
+
+function gcd(a, b) {
+    if (b == 0) {
+        return a;
+    } else {
+        return gcd(b, a%b);
+    }
+}
+
+function coprime(a, b) {
+    return gcd(a,b) == 1;
+}
+
+function EuclidLeg1(m, n) {
+    return square(m) - square(n);
+}
+
+function EuclidLeg2(m, n) {
+    return 2*m*n;
+}
+
+function odd(x) {
+    return x % 2 == 1;
+}
+
+function square(x) {
+    return x * x;
+}
+function min(x, y) {
+    if (x < y) {
+        return x;
+    } else {
+        return y;
+    }
+}
+
+function max(x, y) {
+    return -min(-x, -y);
+}
+
+function countCuboids(l1k, l2k) {
+    local pydiag = square(l1k) + square(l2k);
+    if (l1k < 2000) {
+        for (local i = (l2k/2); i > 0; --i) {
+            if (l2k-i >= 2000) {
+                return;
+            } else {
+                local d1 = square(l2k-i+l1k) + square(i);
+                local d2 = square(l1k+i) + square(l2k-i);
+                if (pydiag <= min(d1, d2)) {
+                    cuboids[max(l2k-i, l1k)] += 1;
+                }
+            }
+        }
+    }
+}
+
+for (local m = 1; m < 60; ++m) {
+    for (local n = 1; n < m; ++n) {
+        if (odd(m-n) && coprime(m, n)) {
+            local leg1 = EuclidLeg1(m, n);
+            local leg2 = EuclidLeg2(m, n);
+            for (local k=1; k * min(leg1, leg2) < 2000; ++k) {
+                countCuboids(leg1 * k, leg2 * k);
+                countCuboids(leg2 * k, leg1 * k);
+            }
+        }
+    }
+}
+
+local count = 0;
+for (local i = 0; i < 2000; ++i) {
+    count += cuboids[i];
+    if (count > 1000000) {
+        print(i + "\n");
+        break
+    }
+}
+
