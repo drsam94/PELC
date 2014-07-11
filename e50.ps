@@ -1,0 +1,92 @@
+
+%Implementation of "Smartest Sieve" from Sieve Timing :)
+%Assumes symbol /primes is defined
+/isPrime {
+    /x exch def
+    /ip true def
+    /i 0 def
+    /for2 {
+        /p primes i get def
+        x p mod 0 eq {
+            /ip false def
+        } {
+            p p mul x le {
+                /i i 1 add def
+                for2
+            } if
+        } ifelse
+    } def
+    for2   
+    ip     
+} def
+
+/primeSieve {
+    /N exch def
+    /primes N array def
+    primes 0 2 put
+    primes 1 3 put
+    primes 2 5 put
+    /primeLength 3 def
+    /n 7 def
+    /for1 {
+        n isPrime {
+            primes primeLength n put
+            /primeLength primeLength 1 add def
+        } if
+        /n 2 n mul 3 mod 2 mul n add def
+        n N lt {
+            for1
+        } if
+    } def
+    for1
+} def
+
+%Assumes symbol /primes is defined
+/partialSum {
+    /sum 0 def
+    /high exch def
+    /low exch def
+    /k low def
+    /for3 {
+        /sum sum primes k get add def
+        /k k 1 add def
+        k high lt {
+            for3
+        } if
+    } def
+    for3
+    sum
+} def
+
+/BOUND 1000000 def
+%Method defines symbols /primes and /primeLength
+%We do not use any return value
+BOUND primeSieve
+/ans 0 def
+/maxChainLength 1 def
+/lindex 0 def
+/for4 {
+    lindex primeLength lt {
+        /hindex lindex maxChainLength add def
+    hindex primeLength lt {
+        /psum lindex hindex partialSum def
+        /for5 {
+            hindex primeLength lt psum BOUND lt and {
+                psum isPrime {
+                    /ans psum ans max def
+                    /maxChainLength hindex lindex sub def
+                } if
+                /psum psum primes hindex get add def
+                /hindex hindex 1 add def
+                for5
+            } if
+        } def
+        for5
+        /lindex lindex 1 add def
+        for4
+    } if
+    } if
+} def
+for4
+
+ans pstack pop
