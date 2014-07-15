@@ -196,8 +196,7 @@ INNERLOOP_END:
     iinc        0 1
     goto        OUTERLOOP
 OUTERLOOP_END:
-    getstatic   java/lang/System out Ljava/io/PrintStream;
     iload       6
-    invokevirtual java/io/PrintStream println (I)V  
+    invokestatic e90/printInt(I)V  
     return       
 .end method       
