@@ -1,0 +1,51 @@
+
+export function main<args>
+{
+    function fac(n)
+    {
+        if (n < 2)
+        {
+            return 1;
+        }
+        else
+        {
+            return n * fac(n - 1);
+        }
+    }
+
+    function isncrbig(n, r)
+    {
+        local denom = fac(r);
+        //very important 1.0 converts to a real;
+        //EEL only has 32 bit ints and only has 
+        //64 bit reals.
+        local rest = n * 1.0;
+        local i = n - 1;
+        while (i > (n - r))
+        {
+            rest = rest * i;
+            if (rest / denom > 1000000)
+            {
+                return true;
+            }
+            i = i - 1;
+        }
+        return false;
+    }
+
+    local min_r = 10;
+    local ans = 0;
+    local n = 23;
+    while (n <= 100)
+    {
+        while (isncrbig(n, min_r - 1))
+        {
+            min_r = min_r - 1;
+        }
+        ans = ans + n - (2 * min_r) + 1;
+        n = n + 1;
+    }
+    print(ans);
+    print("\n");
+    return 0;
+}
