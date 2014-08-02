@@ -1,0 +1,30 @@
+/** Je parle le français juste un peu*/
+ 
+globale
+i est un nombre
+j est un nombre
+p est un nombre
+t est un nombre
+somme est un nombre
+résponse est un nombre valant 0
+E56:
+
+début
+	~ précision 0
+	pour i de 1 à 99, lis
+		pour j de 1 à 99, lis
+			p vaut i puiss j
+			somme vaut 0
+			tant que p > 0, lis
+				t vaut p mod 10
+				somme vaut somme + t
+				/* division seems impossible */
+				p vaut entier (p * 0.1)
+ 			ferme
+			si somme > résponse, lis
+				résponse vaut somme
+			ferme
+		ferme
+	ferme
+	Affiche résponse
+		
