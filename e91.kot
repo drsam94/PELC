@@ -1,0 +1,54 @@
+import java.util.Collections.*
+
+fun min (x: Int, y: Int): Int {
+  if (x < y) {
+    return x;
+  } else {
+    return y;
+  }
+}
+
+fun main(args : Array<String>) {
+    var ans: Int = 0;
+    var B: Int = 50 + 1;
+    for (P1 in 1..((B*B) - 1)) {
+        for (P2: Int in (P1+1)..((B*B - 1))) {
+            var x1: Int = P1 / B;
+            var y1: Int = P1 % B;
+            var x2: Int = P2 / B;
+            var y2: Int = P2 % B;
+            var oldans = ans;
+            if (min(x1, x2) == 0 &&  min(y1, y2) == 0) {
+                //Right Angle at origin
+                ++ans;
+            } else if ((y1 == y2) && (x1  == 0 || x2 == 0)) {
+                //undef slope, check explicitly
+                ++ans;
+            } else if ((x1 == x2) && (y1 == 0 || y2 == 0)) {
+                //same
+                ++ans;
+            } else {
+                //Negative reciprocals => right angle
+                var num: Int   = y1 * (y1 - y2);
+                var denom: Int = x1 * (x1 - x2);
+                if (denom != 0) {
+                    var ratio: Int = num / denom;
+                    var rem: Int   = num % denom;
+                    if ((ratio == -1) && (rem == 0)) {
+                      ++ans;
+                    }
+                }
+                num   = y2 * (y2 - y1);
+                denom = x2 * (x2 - x1);
+                if ((ans == oldans) && denom != 0) {
+                    var ratio: Int = num / denom;
+                    var rem: Int   = num % denom;
+                    if ((ratio == -1) && (rem == 0)) {
+                        ++ans;
+                    }
+                }
+            }
+        }
+    }
+    System.out.println(ans);
+}
