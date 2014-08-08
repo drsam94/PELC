@@ -1,0 +1,8 @@
+ans = 0
+maximum = 0
+list = ReadList["C:\\Users\\Sam\\Desktop\\Euler\\base_exp.txt", Number]
+For[i = 1, i <= Length[list], i = i + 2,
+ next = Log[Part[list, i] * 1.0] * Part[list, i + 1] ;
+ ans = If[next > maximum, (i + 1) / 2, ans];
+ maximum = Max[next, maximum] ]
+Print[ans]
