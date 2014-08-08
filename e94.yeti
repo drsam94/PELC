@@ -1,0 +1,28 @@
+
+contribution x = (
+    var c = 0;
+    temp1 = 3 * x * x - (2 * x) - 1;
+    root1 = int(sqrt(temp1));
+    c := if root1 * root1 == temp1 then
+        3 * x + 1 + c
+    else
+        c
+    fi;
+    temp2 = 3 * x * x + (2 * x) - 1;
+    root2 = int(sqrt(temp2));
+    c := if root2 * root2 == temp2 then
+        3 * x - 1 + c
+    else
+        c
+    fi;
+    c;);
+
+var ans = 0;
+var i   = 3;
+i * 3 < 1000000000 loop (
+    ans := ans + contribution(i);
+    i := i + 2;
+);
+println(ans);
+
+     
