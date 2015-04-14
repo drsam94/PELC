@@ -1,0 +1,7 @@
+git add $1
+git commit -m "added $1"
+git push
+mkfifo head
+printf "<pre class=\"brush:java\">" > head1
+printf "\n</pre><script src=\"http://crux-framework-tools.googlecode.com/svn/trunk/misc/highlight/highlightLoader.js\"></script>" | cat head1 $1 - | xclip -sel clip
+rm head

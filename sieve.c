@@ -105,6 +105,29 @@ void smartSieve(int bound, int* primes, int* primeslength) {
     return; 
 }
 
+/** For some reason this didn't occur to me for a really long time */
+void smartestSieve(int bound, int* primes, int* primeslength) {
+    primes[0] = 2; primes[1] = 3; primes[2] = 5; int mLength = 3;
+    int n;
+    for (n = 7; n < bound; n += 2 * ((2*n) % 3)) {
+        int isprime = 1;
+        int i;
+        for (i = 2; i < mLength; ++i) {
+            int p = primes[i];
+            if (p*p > n) {
+                break;
+            } else if (n % p == 0) {
+                isprime = 0;
+                break;
+            }
+        }
+        if (isprime) {
+            primes[mLength++] = n;
+        }
+    }
+    *primeslength = mLength;
+}
+
 int main(int argc, char** argv) {
     if (argc < 3) { 
         printf("%s\n", "Not enough arguments");
@@ -137,10 +160,18 @@ int main(int argc, char** argv) {
         case 4:
             smartSieve(bound, primes, &primeslength);
             break;
+        case 5:
+            smartestSieve(bound, primes, &primeslength);
+            break;
         default:
             printf("Not a valid choice\n");
             return 1;
     }
     }
+    long sum = 0;
+    for (i = 0; i < primeslength; ++i) {
+        sum += primes[i];
+    }
+    printf("%ld\n", sum);
     return 0; 
 }

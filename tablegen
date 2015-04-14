@@ -1,0 +1,2 @@
+python tablegen.py < table > table.html
+cat table.html | xclip -sel clip
