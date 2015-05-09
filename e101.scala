@@ -1,4 +1,3 @@
-
 class Rational(n : BigInt, d: BigInt) {
     private def gcd(x: BigInt, y: BigInt): BigInt = {
         if (x == 0) y
@@ -12,13 +11,8 @@ class Rational(n : BigInt, d: BigInt) {
     val denom: BigInt = d/g
     def +(that: Rational) =
         new Rational(numer * that.denom + that.numer * denom, denom * that.denom)
-    def -(that: Rational) = {
-    //    println(numer)
-    //    println(denom)
-//        println(that.numer)
-    //    println(that.denom)
+    def -(that: Rational) =
         new Rational(numer * that.denom - that.numer * denom, denom * that.denom)
-    }
     def *(that: Rational) =
         new Rational(numer * that.numer, denom * that.denom)
     def *(that: BigInt) =
@@ -36,16 +30,6 @@ object e101 {
     val one = BigInt(1)
     val u = Array(one, -one, one, -one, one, -one, one, -one, one, -one, one)
 
-    /**Diagnostic only
-    def printMat(matrix: Array[Array[Rational]]) {
-        for (i <- 0 to matrix.size - 1) {
-            for (j <- 0 to matrix(i).size - 1) {
-                print(matrix(i)(j).numer + "/" + matrix(i)(j).denom + " ")
-            }
-            println
-        }
-    }
-    */
     def solve(matrix: Array[Array[Rational]]): Array[BigInt] = {
         for (i <- 0 to matrix.size - 1) {
             // Get leading 0s

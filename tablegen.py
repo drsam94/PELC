@@ -95,7 +95,9 @@ extension = {
     "E#"          : "es",
     "Yeti"        : "yeti",
     "Mathematica" : "nb",
-    "Moonscript"  : "ms"
+    "Moonscript"  : "ms",
+    "Scratch"     : "png",
+    "Fj\xc3\xb6lnir"     : "fjo"
 }
 
 class TableItem:

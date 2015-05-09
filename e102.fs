@@ -20,7 +20,7 @@ for line in System.IO.File.ReadLines("triangles.txt") do
   let rawpoints = Array.map (fun s -> System.Double.Parse(s)) (line.Split(','))
   let points = Array.map (fun i -> { x = rawpoints.[i*2]; y = rawpoints.[i*2 + 1] } : Point ) [|0 .. 2|]
 
-  ans <- ans + (if (Array.fold (fun b i  -> b && isValid points i) true [| 0 .. 2 |]) then 1 else 0)
+  ans <- ans + (if (Array.fold \(fun b i  -> b && isValid points i) true [| 0 .. 2 |]) then 1 else 0)
 
 
 printfn "%d" ans

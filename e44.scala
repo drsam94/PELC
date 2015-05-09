@@ -19,6 +19,8 @@ object e44 {
         p2 = pent(j)
         if (isPent(p1 + p2) && isPent(p2 - p1)) {
           D = min(D, p2 - p1)
+          println(i)
+          println(j)
         }
       }
     }
