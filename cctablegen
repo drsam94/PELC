@@ -1,0 +1,42 @@
+#!/usr/bin/python
+
+import re
+import sys
+import subprocess
+filenames = open('golffiles').readlines()
+
+ws = re.compile(r'\s+')
+fileinfo = []
+totsize = 0
+totfiles = 0
+for fnameline in filenames:
+    problemno, fname = fnameline[:-1].split(' ')
+    size = int(subprocess.check_output(['du', '-b', fname]).split('\t')[0])
+    fileinfo.append( { "fname" : fname, "problem" : problemno, "count" : size })
+    totsize += size
+    totfiles += 1
+
+fileinfo.sort(key=lambda x: int(x["problem"]))
+
+def printTableElem(elem, index):
+    if index % 2 == 0:
+        print '<tr class="alt">'
+    else:
+        print '<tr>'
+    sys.stdout.write("<td>" + elem["problem"] + "</td>\n<td>")
+    sys.stdout.write('<a href="http://github.com/drsam94/PELC/blob/master/' +
+            elem["fname"] + '">' + elem["fname"] + "</a></td>\n<td>")
+    sys.stdout.write(str(elem["count"]))
+    print '</td></tr>'
+
+
+print ('<div><table border="1" id="progress"><tbody>' +
+       '<tr><td>Problem</td><td>File</td><td>Bytes</td>\n</tr>')
+for idx, info in enumerate(fileinfo):
+
+    printTableElem(info, idx)
+    if (idx+1) % 10 == 0 and (idx+1) < len(fileinfo):
+        print ('</tbody></table></div>\n<div><table border="1" id="progress"><tbody><tr>' +
+               '<td>Problem</td><td>File</td><td>Bytes</td>\n</tr>')
+print '<tr><td>Total</td><td>' + str(totfiles) + ' Files</td><td>' + str(totsize) + '</td></tr>\n'
+print '</tbody></table></div>'

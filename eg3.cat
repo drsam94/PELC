@@ -1,0 +1,3 @@
+define d { [dup] dip dup [swap] dip }
+define f { d dup * lt [pop writeln 0] [d mod 0 eq [d swap pop [div] dip] [inc] if] if }
+600851475143 2 [f] [dup 0 gt] while
