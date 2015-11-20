@@ -1,2 +1,1 @@
-f=lambda x:x*(999//x)*(999//x+1)//2
-print(f(3)+f(5)-f(15))
+print(sum(x for x in range(1000)if x%3*x%5<1))
