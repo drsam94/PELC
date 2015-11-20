@@ -1,0 +1,1 @@
+: Z BEGIN DUP 1 - DUP 1 =  UNTIL ; : Y { t x } t x t / + 2 / DUP t ; : R { x } x 2 / BEGIN x Y SWAP - 2 < UNTIL ; : S { x } x R DUP * x = ; : C { a b } a a * b b * + ; : T { a b } a b C S IF a b a b C R + + 1000 = IF a b a b C R * * . bye THEN THEN ; : L { a } 800 Z BEGIN DUP a T 800 = UNTIL ; : M 800 Z BEGIN L DUP 800 = UNTIL ; M
