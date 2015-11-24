@@ -52,7 +52,7 @@ load-plugins=
 disable=missing-docstring,relative-import,invalid-name,too-many-branches,
         too-many-arguments,too-few-public-methods,star-args,too-many-locals,too-many-instance-attributes,
         bad-whitespace,bad-continuation,broad-except,attribute-defined-outside-init,
-        dangerous-default-value, protected-access
+        dangerous-default-value, protected-access,line-too-long
 
 
 [REPORTS]
