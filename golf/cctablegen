@@ -34,7 +34,7 @@ print ('<div><table border="1" id="progress"><tbody>' +
 for idx, info in enumerate(fileinfo):
 
     printTableElem(info, idx)
-    if (idx+1) % 10 == 0 and (idx+1) < len(fileinfo):
+    if (idx+1) % 12 == 0 and (idx+1) < len(fileinfo):
         print ('</tbody></table></div>\n<div><table border="1" id="progress"><tbody><tr>' +
                '<td>Problem</td><td>File</td><td>Bytes</td>\n</tr>')
 print '<tr><td>Total</td><td>' + str(totfiles) + ' Files</td><td>' + str(totsize) + '</td></tr>\n'
