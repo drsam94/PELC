@@ -1,0 +1,152 @@
+{
+    "%" : {
+        "a" : "=in1",
+        "b" : "=in2",
+        "quotient" : {"=/" : {}},
+        "iquot" : {"=|" : {"in1" : "=quotient", "in2" : 0}},
+        "itake" : {"=*" : {"in1" : "=iquot", "in2" : "=b"}},
+        "res"   : {"=-" : {"in1" : "=a", "in2" : "=itake"}}
+    },
+    "arrify" : {
+        "=if" : {
+            "cond" : { "===" : { "in1" : 0, "in2" : "=n"}},
+            "then" : "=_arr",
+            "else" : {
+                "last_digit" : {"=%" : { "in1" : "=n", "in2" : 10}},
+                "_temp" : "=_arr",
+                "_t" : {"=arr.prepend" : { "e" : "=last_digit", "arr" : "=_temp" }},
+                "_n" : {"=|" : {"in1" : {"=/" : {"in1" : "=n", "in2" : 10}}, "in2": 0}},
+                "=arrify" : {"n" : "=_n", "_arr" : "=_t"}
+            }
+        }
+    },
+    "deArrify" : {
+        "Length" : {"=arr.len": {"arr": "=inputArr"}},
+        "=if" : {
+            "cond" : {"===": {"in1" : "=Length", "in2" : "=__i"}},
+            "then" : "=acc",
+            "else" : {
+                "_acc" : {"=*" : {"in1" : "=acc", "in2" : 10}},
+                "nextDigit" : {"=arr.at" : {"arr" : "=inputArr", "offset" : "=__i"}},
+                "__acc" : {"=+" : {"in1": "=_acc", "in2" : "=nextDigit"}},
+                "nextIdx" : {"=+" : {"in1" : "=__i", "in2" : 1}},
+                "=deArrify" : {"acc" : "=__acc", "__i" : "=nextIdx"}
+            }
+        }
+    },
+    "isprime" : {
+        "even?" : {"=%" : { "in1" : "=n", "in2" : 2}},
+        "=if" : {
+            "cond" : {"===" : {"in1" : "=even?", "in2" : 0}},
+            "then" : {"===" : {"in1" : "=n", "in2" : 2}},
+            "else" : {
+                "ip2" : {"=+" : {"in1" : "=_i", "in2" : 1}},
+                "=if" : {
+                    "sq" : {"=*" : {"in1": "=_i", "in2": "=_i"}},
+                    "cond" : {"=<=": {"in1": "=sq", "in2": "=n"}},
+                    "then" : {
+                        "=if" : {
+                            "remainder" : {"=%": {"in1" : "=n", "in2" : "=_i"}},
+                            "cond" : {"===": {"in1": "=remainder", "in2" : 0}},
+                            "then" : false,
+                            "else" : {
+                                "=isprime" : {"_i" : "=ip2"}
+                            }
+                        }
+                    },
+                    "else" : {"=>=" : {"in1" : "=n", "in2" : 2}}
+                }
+            }
+        }
+    },
+    "slice" : {
+        "=if" : {
+            "cond" : {"===": {"in1" : "=start", "in2": "=end"}},
+            "then" : "=acc",
+            "else" : {
+                "elem" : {"=arr.at": {"arr": "=list", "offset": "=start"}},
+                "_acc" : {"=arr.append": {"arr": "=acc", "e" : "=elem"}},
+                "sp1"  : {"=+": {"in1": "=start", "in2": 1}},
+                "=slice" : {"start" : "=sp1", "acc" : "=_acc"}
+            }
+        }
+    },
+    "hasprop" : {
+        "len" : {"=arr.len": {"arr": "=array"}},
+        "=if" : {
+            "cond" : {"===": {"in1": "=idx", "in2": "=len"}},
+            "then" : true,
+            "else" : {
+                "_ip1" : {"=+": {"in1" : "=idx", "in2" : 1}},
+                "firstSlice" : {"=slice": {"list" : "=array", "start" : 0, "end" : "=_ip1", "acc" : []}},
+                "secondSlice": {"=slice": {"list" : "=array", "start" : "=idx", "end" : "=len", "acc" : []}},
+                "guardedIsPrime" : {
+                    "=if" : {
+                        "_len" : {"=arr.len": {"arr": "=inSlice"}},
+                        "cond" : {"===" : {"in1" : "=_len", "in2" : 0}},
+                        "then" : true,
+                        "else" : {
+                            "N" : {"=deArrify" : {"inputArr" : "=inSlice", "__i" : 0, "acc" : 0}},
+                            "res" : {"=isprime" : {"_i" : 3, "n" : "=N"}}
+                        }
+                    }
+                },
+                "firstPrime" : {"=guardedIsPrime" : {"inSlice" : "=firstSlice"}},
+                "secondPrime" : {"=guardedIsPrime" : {"inSlice" : "=secondSlice"}},
+                "=if" : {
+                    "cond" : {"=&&" : {"in1": "=firstPrime", "in2" : "=secondPrime"}},
+                    "then" : {"=hasprop" : {"idx" : "=_ip1"}},
+                    "else" : false
+                }
+            }
+        }
+    },
+    "computeAns" : {
+        "=if" : {
+            "cond" : {"===": {"in1" : "=count", "in2": 11}},
+            "then" : "=sum",
+            "else" : {
+                "ar" : {"=arrify" : {"n" : "=num", "_arr" : []}},
+                "=if" : {
+                    "front" : {"=arr.at": {"arr" : "=ar", "offset" : 0}},
+                    "is9"   : {"===" : {"in1": "=front", "in2" : 9}},
+                    "cond"  : {"=isprime" : {"n" : "=front", "_i" : 3}},
+                    "then" : {
+                        "=if" : {
+                            "np2"  : {"=+": {"in1" : "=num", "in2": 2}},
+                            "cond" : {"=hasprop" : {"array" : "=ar", "idx" : 0}},
+                            "then" : {
+                                "sum_" : {"=+": {"in1" : "=sum", "in2": "=num"}},
+                                "count_" : {"=+": {"in1": "=count", "in2" : 1}},
+                                "=computeAns" : {"num" : "=np2", "sum" : "=sum_", "count" : "=count_"}
+                            },
+                            "else" : {
+                                "=computeAns" : {"num" : "=np2"}
+                            }
+                        }
+                    },
+                    "else" : {
+                        "=if" : {
+                            "cond" : "=is9",
+                            "ll" : {"=arr.len" : {"arr" : "=ar"}},
+                            "last" : {"=slice" : {"list" : "=ar", "start" : 1, "end" : "=ll", "acc" : []}},
+                            "then" : {
+                                "last_" : {"=arr.prepend" : {"arr" : "=last", "e" : 3}},
+                                "last__" : {"=arr.prepend" : {"arr" : "=last_", "e" : 2}},
+                                "newNum" : {"=deArrify" : {"inputArr" : "=last__", "__i" : 0, "acc" : 0}},
+                                "=computeAns" : {"num" : "=newNum"}
+                            },
+                            "else" : {
+                                "incFront" : {"=+": {"in1" : "=front", "in2" : 1}},
+                                "slast_" : {"=arr.prepend" : {"arr": "=last", "e" : "=incFront"}},
+                                "nNum" : {"=deArrify" : {"inputArr" : "=slast_", "__i" : 0, "acc" : 0}},
+                                "=computeAns" : {"num" : "=nNum"}
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    },
+    "=computeAns" : {"num" : 11, "count" : 0, "sum" : 0}
+}
