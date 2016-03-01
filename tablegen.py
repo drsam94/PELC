@@ -97,6 +97,7 @@ extension = {
     "Mathematica" : "nb",
     "Moonscript"  : "ms",
     "Scratch"     : "png",
+    "Ajsone"      : "json",
     "Fj\xc3\xb6lnir"     : "fjo"
 }
 
@@ -149,4 +150,4 @@ for i in range(0, len(table)):
     printTableElem(table[i], i)
     if (i+1) % partSize == 0 and (i+1) < len(table):
         print '</tbody></table></div>\n<div><table border="1" id="progress">\n<tbody>'
-print '</tbody></table></div>' 
+print '</tbody></table></div>'
