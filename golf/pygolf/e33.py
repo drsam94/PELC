@@ -1,7 +1,7 @@
-a=b=1
-R=range
-for q in R(10,100):
- for p in R(10,q):
-  if p%10==q//10and q%10and p/q==p//10/q%10:a*=p;b*=q
-g=lambda a,b:a if b==0else g(b,a%b)
-print(b/g(a,b))
+a=b=1;q=t=10
+while q<100:
+ for p in range(t,q):
+  if(p%t==q//t)*(q%t==p//t*q/p):a*=p;b*=q;c=b
+ q+=1
+while b:a,b=b,a%b
+print(c/a)

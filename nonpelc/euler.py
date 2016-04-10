@@ -34,7 +34,25 @@ def product(lst):
     return prod
 
 def primes(n):
-    return [x for x in range(2,n) if isPrime(x)]
+    if n <= 10:
+        return [2,3,5,7]
+    else:
+        base = max(10, int(n**.5 + 1))
+        sievers = primes(base)
+        if base % 2 == 0:
+            base += 1
+        new_ps = []
+        for x in range(base, n, 2):
+            isp = True
+            for p in sievers:
+                if p*p > x:
+                    break
+                elif x % p == 0:
+                    isp = False
+                    break
+            if isp:
+                new_ps.append(x)
+        return sievers + new_ps
 
 def radical(n,_primes=None):
     if not _primes:
