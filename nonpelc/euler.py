@@ -21,8 +21,9 @@ def isPrime(x):
 def fac(x):
     return x*fac(x-1) if x>0 else 1
 
-def choose(n,k):
-    return fac(n) // (fac(k) * fac(n-k))
+def choose(n,k, rat=False):
+    c = rational(fac(n), fac(k) * fac(n - k))
+    return c if rat else int(c)
 
 def digisum(x):
     return sum(int(k) for k in str(x))
@@ -54,6 +55,16 @@ def primes(n):
                 new_ps.append(x)
         return sievers + new_ps
 
+def squarefree(n, _primes=None):
+    if not _primes:
+        _primes = primes(n)
+    for p in _primes:
+        if p**2 > n:
+            return True
+        elif n % p**2 == 0:
+            return False
+    return True
+
 def radical(n,_primes=None):
     if not _primes:
         _primes = primes(n)
@@ -72,12 +83,16 @@ def gcd(a,b):
 
 class rational(object):
     def __add__(self, other):
+        if isinstance(other, int):
+            other = rational(other)
         return rational(self.num*other.denom+other.num*self.denom,self.denom*other.denom)
 
     def __sub__(self, other):
-        return self + rational(-1*other.num, other.denom)
+        return self + (rational(other.num, other.denom) * -1)
 
     def __mul__(self, other):
+        if isinstance(other, int):
+            other = rational(other)
         return rational(self.num*other.num, self.denom*other.denom)
 
     def inverse(self):
@@ -88,8 +103,14 @@ class rational(object):
         self.num   = n // g
         self.denom = d // g
 
-    def __rdiv__(self, other):
-        return self.inverse()
+    def __int__(self):
+        return self.num // self.denom
+
+    def __float__(self):
+        return self.num / self.denom
+
+    def __complex__(self):
+        return float(self)
 
     def __str__(self):
         return "%d / %d" % (self.num , self.denom)
@@ -98,12 +119,16 @@ class rational(object):
         return str(self)
 
     def __eq__(self, other):
+        if isinstance(other, int):
+            other = rational(other)
         return self.num == other.num and self.denom == other.denom
 
     def __hash__(self):
         return hash(str(self))
 
     def __lt__(self, other):
+        if isinstance(other, int):
+            other = rational(other)
         return self.num * other.denom < other.num * self.denom
 
     def floor(self):
