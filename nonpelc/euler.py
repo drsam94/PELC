@@ -81,6 +81,9 @@ def radical(n,_primes=None):
 def gcd(a,b):
     return a if b == 0 else gcd(b,a%b)
 
+def inf():
+    return float("inf")
+
 class rational(object):
     def __add__(self, other):
         if isinstance(other, int):

@@ -1,77 +1,47 @@
-from euler import product, primes
-ps = primes(200)
-N = 4000000
+from euler import primes, product, inf, memoize
 
-def primorial(end, start=0):
-    return product(ps[start:end])
+# we want min { n | |{(x,y)| 1/x + 1/y = 1/n}| >= 1e6 }
 
-def ways(k, v):
-    v = v[:]
-    w = 3**(k - len(v))
-    if len(v) > 1:
-        if v[0] > 2 and v[1] > 1:
-            v[0] -=1
-            v[1] -=1
-            w *= 3
+# now let's analyze the condition, if it is true, then
+# 1/n - 1/y = 1/x, i.e
+# y - n / ny = 1/x
+# ny % (y - n) == 0
+#
+# So, we want
+# min { n | |{y > n | ny % (y - n) == 0}| >= 1e6}
+# but if we write y = n + k, this condition becomes
+# n(n + k) % k == 0, which is true when
+# n^2 + nk % k == 0,
+# n^2 % k == 0
+# ergo, we really want the min n such that #divisors of n^2 is > 1e6
 
-    for j in v:
-        w *= ps[j + 1]
-    return (w - 1) // 2
+# so, we want least n such that sigma_0(n**2) >= 1e6
 
-def getnum(k, v):
-    n = primorial(k)
-    for i, val in enumerate(v):
-        n *= ps[i]**val
-    return n
+# equivalently, we want integers [a_0, a_1, a_2, ...] such that
+# prod(2*a_i + 1) > 1e6 and
+# prod(p_i**a_i) is minimized
 
-def min_at_k(k, v, glbl_min):
-    if getnum(k, v) > glbl_min:
-        return glbl_min,k,v
-    if ways(k, v) > N:
-        m,ks,vs = getnum(k, v), k, v
-    else:
-        m = float("inf")
-    if len(v) < k:
-        L,kc,vc = min_at_k(k, v + [1], glbl_min)
-        if L < m:
-            m,ks,vs = L,kc,vc
-    else:
-        m,ks,vs = glbl_min,0,[]
-    if v:
-        for j in range(0, len(v)):
-            vc = v[:]
-            vc[j] += 1
-            L,kc,vc = min_at_k(k, vc, glbl_min)
-            if L < m:
-                m,ks,vs = L,kc,vc
-    return m,ks,vs
 
-def base_ways(k):
-    d = 1
-    for i in range(2,k):
-        if (k * k) % i == 0:
-            d += 1
-    return d
+ps = primes(1000)
+THRESH = 4e6
+def getans(asl, minans):
+    candidate = product(p**a for p,a in zip(ps, asl))
+    if candidate >= minans: 
+        return minans
+    if product(2*a + 1 for a in asl) > 2*THRESH:
+        print((candidate, asl))
+        minans = candidate
 
-def test():
-    for k in range(3, 6):
-        for v in [ [] , [1,1], [2,2], [1,1,1]]:
-            N = getnum(k,v)
-            print(N, ways(k, v), base_ways(N))
+    if all(a == 1 for a in asl):
+        minans = getans(asl + [1], minans)
+    for j in range(len(asl)):
+        ascpy = asl[:]
+        ascpy[j] += 1
+        if j > 0 and ascpy[j] > ascpy[j - 1]:
+            continue
+        if ascpy[j] > 12: 
+            break
+        minans = getans(ascpy, minans)
+    return minans
 
-test()
-k = 2
-while ways(k, []) < N:
-    k += 1
-k += 2
-min_ans = getnum(k, [])
-
-for v in [ [], [1,1], [2,1], [3,1], [3,2] ]:
-    print(ways(5,v), base_ways(getnum(5, v)))
-
-for j in range(k-1, 4, -1):
-    m,ks,v = min_at_k(j, [], min_ans)
-    if m < min_ans:
-        min_ans = m
-        print(min_ans, j, ks, v, ways(ks, v))
-print(min_ans)
+print(getans([], inf()))
