@@ -78,6 +78,9 @@ def radical(n,_primes=None):
             return r
     return r
 
+def numDigits(x):
+    return len(str(x))
+
 def gcd(a,b):
     return a if b == 0 else gcd(b,a%b)
 
