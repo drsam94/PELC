@@ -1,2 +1,3 @@
 python tablegen.py < table > table.html
-cat table.html | xclip -sel clip
+printf "PELC\n======\n\nSolutions to project euler problems in various languages for http://pelangchanllenge.blogspot.com" > README.md
+cat table.html >> README.md

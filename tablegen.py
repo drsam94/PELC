@@ -127,7 +127,12 @@ for line in sys.stdin:
     text = ""
     for i in range(0,len(nums)):
         num = nums[i]
-        text += '<a href="http://github.com/drsam94/PELC/blob/master/e' + str(num) + '.' + extension[lang] + '">' + str(num) + '</a>' +  (',' if i + 1 < len(nums) else ('*' if current == 0 else ''))
+        ext = extension[lang]
+        if lang == "Javascript":
+            # hack for the fact that I embedded some js in html and wrote other
+            # in node because I learned things over time
+            if num > 100: ext = ".js"
+        text += '<a href="http://github.com/drsam94/PELC/blob/master/e' + str(num) + '.' + ext + '">' + str(num) + '</a>' +  (',' if i + 1 < len(nums) else ('*' if current == 0 else ''))
     table.append(TableItem(lang, text, current))
 
 a2 = table.pop()
@@ -136,6 +141,8 @@ table.sort(lambda x, y: x.current - y.current)
 table.append(a1)
 table.append(a2)
 
+# used for old blog-style elements
+"""
 def printTableElem(elem, index):
     if index % 2 == 0:
         print '<tr class="alt">'
@@ -150,4 +157,19 @@ for i in range(0, len(table)):
     printTableElem(table[i], i)
     if (i+1) % partSize == 0 and (i+1) < len(table):
         print '</tbody></table></div>\n<div><table border="1" id="progress">\n<tbody>'
+print '</tbody></table></div>'
+"""
+
+def printTableLine(index):
+    print '<tr>'
+    i = 0
+    while index + i*partSize < len(table):
+        elem = table[index + i*partSize]
+        sys.stdout.write("<td>%s</td>\n<td>%s</td>" % (elem.lang, elem.text))
+        i += 1
+    print '</tr>'
+
+print '<div><table border="1">\n<tbody>'
+for i in range(partSize):
+    printTableLine(i)
 print '</tbody></table></div>'
