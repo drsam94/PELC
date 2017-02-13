@@ -58,7 +58,7 @@ WARM 58
 Kotlin 26* 91
 Pascal 61
 ALGOL68 31
-Smalltalk 13
+Smalltalk 13* 104
 Dart 63* 65
 Tcl 64
 Gosu 39
@@ -96,6 +96,7 @@ Mathematica 99
 Moonscript 100
 Scratch 44
 Fjölnir 19
+Awk 13
 P&amp;P 1 5 6 8
 P&amp;P 15 25 28 69
 

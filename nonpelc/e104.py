@@ -12,6 +12,7 @@ while True:
     tail = list(str(x % 1000000000))
     tail.sort()
     if tail == pan:
+        print(i)
         head = list(str(x)[:9])
         head.sort()
         if head == pan:

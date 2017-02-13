@@ -98,7 +98,8 @@ extension = {
     "Moonscript"  : "ms",
     "Scratch"     : "png",
     "Ajsone"      : "json",
-    "Fj\xc3\xb6lnir"     : "fjo"
+    "Fj\xc3\xb6lnir"     : "fjo",
+    "Awk"         : "awk"
 }
 
 class TableItem:
