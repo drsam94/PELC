@@ -99,7 +99,8 @@ extension = {
     "Scratch"     : "png",
     "Ajsone"      : "json",
     "Fj\xc3\xb6lnir"     : "fjo",
-    "Awk"         : "awk"
+    "Awk"         : "awk",
+    "Swift"       : "swift"
 }
 
 class TableItem:
@@ -132,7 +133,7 @@ for line in sys.stdin:
         if lang == "Javascript":
             # hack for the fact that I embedded some js in html and wrote other
             # in node because I learned things over time
-            if num > 100: ext = ".js"
+            if num > 100: ext = "js"
         text += '<a href="http://github.com/drsam94/PELC/blob/master/e' + str(num) + '.' + ext + '">' + str(num) + '</a>' +  (',' if i + 1 < len(nums) else ('*' if current == 0 else ''))
     table.append(TableItem(lang, text, current))
 

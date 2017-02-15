@@ -127,7 +127,7 @@ Solutions to project euler problems in various languages for http://pelangchanll
 <td>K</td>
 <td><a href="http://github.com/drsam94/PELC/blob/master/e8.k">8</a>,<a href="http://github.com/drsam94/PELC/blob/master/e30.k">30</a></td><td>Haskell</td>
 <td><a href="http://github.com/drsam94/PELC/blob/master/e2.hs">2</a>,<a href="http://github.com/drsam94/PELC/blob/master/e37.hs">37</a>,<a href="http://github.com/drsam94/PELC/blob/master/e66.hs">66</a></td><td>Javascript</td>
-<td><a href="http://github.com/drsam94/PELC/blob/master/e9.html">9</a>,<a href="http://github.com/drsam94/PELC/blob/master/e31.html">31</a>,<a href="http://github.com/drsam94/PELC/blob/master/e60.html">60</a>,<a href="http://github.com/drsam94/PELC/blob/master/e103..js">103</a></td></tr>
+<td><a href="http://github.com/drsam94/PELC/blob/master/e9.html">9</a>,<a href="http://github.com/drsam94/PELC/blob/master/e31.html">31</a>,<a href="http://github.com/drsam94/PELC/blob/master/e60.html">60</a>,<a href="http://github.com/drsam94/PELC/blob/master/e103.js">103</a></td></tr>
 <tr>
 <td>ALGOL68</td>
 <td><a href="http://github.com/drsam94/PELC/blob/master/e31.alg">31</a></td><td>Prolog</td>
@@ -136,17 +136,18 @@ Solutions to project euler problems in various languages for http://pelangchanll
 <tr>
 <td>Go</td>
 <td><a href="http://github.com/drsam94/PELC/blob/master/e12.go">12</a>,<a href="http://github.com/drsam94/PELC/blob/master/e32.go">32</a></td><td>Fantom</td>
-<td><a href="http://github.com/drsam94/PELC/blob/master/e68.fan">68</a></td><td>P&amp;P</td>
-<td><a href="http://github.com/drsam94/PELC/blob/master/e1.txt">1</a>,<a href="http://github.com/drsam94/PELC/blob/master/e5.txt">5</a>,<a href="http://github.com/drsam94/PELC/blob/master/e6.txt">6</a>,<a href="http://github.com/drsam94/PELC/blob/master/e8.txt">8</a></td></tr>
+<td><a href="http://github.com/drsam94/PELC/blob/master/e68.fan">68</a></td><td>Swift</td>
+<td><a href="http://github.com/drsam94/PELC/blob/master/e105.swift">105</a></td></tr>
 <tr>
 <td>Bash</td>
 <td><a href="http://github.com/drsam94/PELC/blob/master/e33.sh">33</a></td><td>Perl</td>
 <td><a href="http://github.com/drsam94/PELC/blob/master/e19.pl">19</a>,<a href="http://github.com/drsam94/PELC/blob/master/e70.pl">70</a></td><td>P&amp;P</td>
-<td><a href="http://github.com/drsam94/PELC/blob/master/e15.txt">15</a>,<a href="http://github.com/drsam94/PELC/blob/master/e25.txt">25</a>,<a href="http://github.com/drsam94/PELC/blob/master/e28.txt">28</a>,<a href="http://github.com/drsam94/PELC/blob/master/e69.txt">69</a></td></tr>
+<td><a href="http://github.com/drsam94/PELC/blob/master/e1.txt">1</a>,<a href="http://github.com/drsam94/PELC/blob/master/e5.txt">5</a>,<a href="http://github.com/drsam94/PELC/blob/master/e6.txt">6</a>,<a href="http://github.com/drsam94/PELC/blob/master/e8.txt">8</a></td></tr>
 <tr>
 <td>Batch</td>
 <td><a href="http://github.com/drsam94/PELC/blob/master/e34.bat">34</a></td><td>Processing</td>
-<td><a href="http://github.com/drsam94/PELC/blob/master/e71.pde">71</a></td></tr>
+<td><a href="http://github.com/drsam94/PELC/blob/master/e71.pde">71</a></td><td>P&amp;P</td>
+<td><a href="http://github.com/drsam94/PELC/blob/master/e15.txt">15</a>,<a href="http://github.com/drsam94/PELC/blob/master/e25.txt">25</a>,<a href="http://github.com/drsam94/PELC/blob/master/e28.txt">28</a>,<a href="http://github.com/drsam94/PELC/blob/master/e69.txt">69</a></td></tr>
 <tr>
 <td>ChucK</td>
 <td><a href="http://github.com/drsam94/PELC/blob/master/e35.chk">35</a></td><td>J</td>
