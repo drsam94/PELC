@@ -31,6 +31,7 @@ for n in range(2, N//2 + 1):
         b = (1 << n) - 1
         while b < (1 << N):
             if needCheck(a, b):
+                print(a, b)
                 ans += 1
             b = F(b)
         a = F(a)

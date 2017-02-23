@@ -141,17 +141,18 @@ Solutions to project euler problems in various languages for http://pelangchanll
 <tr>
 <td>Bash</td>
 <td><a href="http://github.com/drsam94/PELC/blob/master/e33.sh">33</a></td><td>Perl</td>
-<td><a href="http://github.com/drsam94/PELC/blob/master/e19.pl">19</a>,<a href="http://github.com/drsam94/PELC/blob/master/e70.pl">70</a></td><td>P&amp;P</td>
-<td><a href="http://github.com/drsam94/PELC/blob/master/e1.txt">1</a>,<a href="http://github.com/drsam94/PELC/blob/master/e5.txt">5</a>,<a href="http://github.com/drsam94/PELC/blob/master/e6.txt">6</a>,<a href="http://github.com/drsam94/PELC/blob/master/e8.txt">8</a></td></tr>
+<td><a href="http://github.com/drsam94/PELC/blob/master/e19.pl">19</a>,<a href="http://github.com/drsam94/PELC/blob/master/e70.pl">70</a></td><td>Typescript</td>
+<td><a href="http://github.com/drsam94/PELC/blob/master/e106.ts">106</a></td></tr>
 <tr>
 <td>Batch</td>
 <td><a href="http://github.com/drsam94/PELC/blob/master/e34.bat">34</a></td><td>Processing</td>
 <td><a href="http://github.com/drsam94/PELC/blob/master/e71.pde">71</a></td><td>P&amp;P</td>
-<td><a href="http://github.com/drsam94/PELC/blob/master/e15.txt">15</a>,<a href="http://github.com/drsam94/PELC/blob/master/e25.txt">25</a>,<a href="http://github.com/drsam94/PELC/blob/master/e28.txt">28</a>,<a href="http://github.com/drsam94/PELC/blob/master/e69.txt">69</a></td></tr>
+<td><a href="http://github.com/drsam94/PELC/blob/master/e1.txt">1</a>,<a href="http://github.com/drsam94/PELC/blob/master/e5.txt">5</a>,<a href="http://github.com/drsam94/PELC/blob/master/e6.txt">6</a>,<a href="http://github.com/drsam94/PELC/blob/master/e8.txt">8</a></td></tr>
 <tr>
 <td>ChucK</td>
 <td><a href="http://github.com/drsam94/PELC/blob/master/e35.chk">35</a></td><td>J</td>
-<td><a href="http://github.com/drsam94/PELC/blob/master/e3.j">3</a>,<a href="http://github.com/drsam94/PELC/blob/master/e24.j">24</a>,<a href="http://github.com/drsam94/PELC/blob/master/e35.j">35</a>,<a href="http://github.com/drsam94/PELC/blob/master/e69.j">69</a>,<a href="http://github.com/drsam94/PELC/blob/master/e72.j">72</a></td></tr>
+<td><a href="http://github.com/drsam94/PELC/blob/master/e3.j">3</a>,<a href="http://github.com/drsam94/PELC/blob/master/e24.j">24</a>,<a href="http://github.com/drsam94/PELC/blob/master/e35.j">35</a>,<a href="http://github.com/drsam94/PELC/blob/master/e69.j">69</a>,<a href="http://github.com/drsam94/PELC/blob/master/e72.j">72</a></td><td>P&amp;P</td>
+<td><a href="http://github.com/drsam94/PELC/blob/master/e15.txt">15</a>,<a href="http://github.com/drsam94/PELC/blob/master/e25.txt">25</a>,<a href="http://github.com/drsam94/PELC/blob/master/e28.txt">28</a>,<a href="http://github.com/drsam94/PELC/blob/master/e69.txt">69</a></td></tr>
 <tr>
 <td>Whitespace</td>
 <td><a href="http://github.com/drsam94/PELC/blob/master/e36.ws">36</a></td><td>Groovy</td>
