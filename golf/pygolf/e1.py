@@ -1,1 +1,1 @@
-print(sum(x for x in range(1000)if x%3*x%5<1))
+print(sum(x*(x%3*x%5<1)for x in range(1000)))
