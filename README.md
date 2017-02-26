@@ -5,12 +5,17 @@ Solutions to project euler problems in various languages for http://pelangchanll
 <tbody>
 <tr>
 <td>BrainFuck</td>
-<td><a href="http://github.com/drsam94/PELC/blob/master/e1.bf">1</a>*</td><td>sML</td>
+<td><a href="http://github.com/drsam94/PELC/blob/master/e1.bf">1</a>*</td><td>Ada</td>
+<td><a href="http://github.com/drsam94/PELC/blob/master/e41.adb">41</a></td><td>R</td>
+<td><a href="http://github.com/drsam94/PELC/blob/master/e45.r">45</a>,<a href="http://github.com/drsam94/PELC/blob/master/e78.r">78</a></td></tr>
+<tr>
+<td>Ook!</td>
+<td><a href="http://github.com/drsam94/PELC/blob/master/e6.ook">6</a>*</td><td>sML</td>
 <td><a href="http://github.com/drsam94/PELC/blob/master/e10.sml">10</a>,<a href="http://github.com/drsam94/PELC/blob/master/e42.sml">42</a></td><td>CIL</td>
 <td><a href="http://github.com/drsam94/PELC/blob/master/e79.il">79</a></td></tr>
 <tr>
-<td>Ook!</td>
-<td><a href="http://github.com/drsam94/PELC/blob/master/e6.ook">6</a>*</td><td>Coffeescript</td>
+<td>Postscript</td>
+<td><a href="http://github.com/drsam94/PELC/blob/master/e7.ps">7</a>,<a href="http://github.com/drsam94/PELC/blob/master/e50.ps">50</a>*</td><td>Coffeescript</td>
 <td><a href="http://github.com/drsam94/PELC/blob/master/e43.coffee">43</a></td><td>Frink</td>
 <td><a href="http://github.com/drsam94/PELC/blob/master/e16.fr">16</a>,<a href="http://github.com/drsam94/PELC/blob/master/e80.fr">80</a></td></tr>
 <tr>
@@ -45,8 +50,8 @@ Solutions to project euler problems in various languages for http://pelangchanll
 <td><a href="http://github.com/drsam94/PELC/blob/master/e21.sq">21</a>,<a href="http://github.com/drsam94/PELC/blob/master/e52.sq">52</a>,<a href="http://github.com/drsam94/PELC/blob/master/e55.sq">55</a>,<a href="http://github.com/drsam94/PELC/blob/master/e86.sq">86</a></td></tr>
 <tr>
 <td>Io</td>
-<td><a href="http://github.com/drsam94/PELC/blob/master/e11.io">11</a></td><td>Postscript</td>
-<td><a href="http://github.com/drsam94/PELC/blob/master/e7.ps">7</a>,<a href="http://github.com/drsam94/PELC/blob/master/e50.ps">50</a></td><td>D</td>
+<td><a href="http://github.com/drsam94/PELC/blob/master/e11.io">11</a></td><td>C++TMP</td>
+<td><a href="http://github.com/drsam94/PELC/blob/master/e50.cpp">50</a></td><td>D</td>
 <td><a href="http://github.com/drsam94/PELC/blob/master/e22.d">22</a>,<a href="http://github.com/drsam94/PELC/blob/master/e87.d">87</a></td></tr>
 <tr>
 <td>Shakespeare</td>
@@ -173,8 +178,4 @@ Solutions to project euler problems in various languages for http://pelangchanll
 <td>Rust</td>
 <td><a href="http://github.com/drsam94/PELC/blob/master/e40.rs">40</a></td><td>Hack</td>
 <td><a href="http://github.com/drsam94/PELC/blob/master/e77.hh">77</a></td></tr>
-<tr>
-<td>Ada</td>
-<td><a href="http://github.com/drsam94/PELC/blob/master/e41.adb">41</a></td><td>R</td>
-<td><a href="http://github.com/drsam94/PELC/blob/master/e45.r">45</a>,<a href="http://github.com/drsam94/PELC/blob/master/e78.r">78</a></td></tr>
 </tbody></table></div>

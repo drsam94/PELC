@@ -101,7 +101,8 @@ extension = {
     "Fj\xc3\xb6lnir"     : "fjo",
     "Awk"         : "awk",
     "Swift"       : "swift",
-    "Typescript"  : "ts"
+    "Typescript"  : "ts",
+    "C++TMP"      : "cpp"
 }
 
 class TableItem:
