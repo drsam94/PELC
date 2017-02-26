@@ -26,7 +26,7 @@ Squirrel 21* 52* 55* 86
 D 22* 87
 GLSL 7
 Ceylon 23
-Postscript 7* 50*
+Postscript 7* 50* 38
 Befunge 27
 Boo 29
 Frink 16* 80
@@ -36,7 +36,7 @@ Bash 33
 Batch 34
 Whitespace 36
 LOLCODE 10
-Lua 38
+Lua 38* 107
 Erlang 24
 Rust 40
 Ada 41

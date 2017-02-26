@@ -1,0 +1,74 @@
+/oom {
+    /x exch def
+    x 10 lt { 1 }
+    {
+        x 10 idiv oom 1 add
+    } ifelse
+} def
+
+/getDigits {
+    /y exch def
+    /N y oom def
+    /ret N array def
+    /i 0 def
+    /loop1 {
+        ret i y 10 mod put
+        /y y 10 idiv def
+        /i i 1 add def
+        i N lt {
+            loop1
+        } if
+    } def
+    loop1
+    ret
+} def
+
+/isPandigital {
+    getDigits /digits exch def
+    /prod 1 def
+    /sum 0 def
+    /k 0 def
+    /loop3 {
+        /temp2 digits k get def
+        /sum sum temp2 add def
+        /prod prod temp2 mul def
+        /k k 1 add def
+        k 9 lt {
+            loop3
+        } if
+    } def
+    loop3
+    sum 45 eq
+    prod 362880 eq
+    digits length 9 eq
+    and
+    and
+} def
+
+/pandigVal {
+    /z exch def
+    /j 1 def
+    /pan 0 def
+    /loop2 {
+        /temp j z mul def
+        /pan pan 10 temp oom exp cvi mul temp add def
+        pan oom 9 lt {
+            /j j 1 add def
+            loop2
+        } if
+    } def
+    loop2
+    pan isPandigital { pan } { 0 } ifelse
+} def
+
+/ans 0 def
+/n 1 def
+/loop4 {
+    /ans ans n pandigVal max def
+    /n n 1 add def
+    n 10000 lt {
+        loop4
+    } if
+} def
+loop4
+ans pstack pop
