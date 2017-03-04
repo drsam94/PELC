@@ -102,7 +102,8 @@ extension = {
     "Awk"         : "awk",
     "Swift"       : "swift",
     "Typescript"  : "ts",
-    "C++TMP"      : "cpp"
+    "C++TMP"      : "cpp",
+    "dc"          : "dc"
 }
 
 class TableItem:

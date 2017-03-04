@@ -1,0 +1,24 @@
+[ 1 lc + q] sA
+[ ln 2 / 1 lc + lC x q] sB
+[ d sZ r d sY r ] sE
+[q] sQ # random helper snippets
+
+[
+    sc
+    sn
+    1 ln =A
+    ln 2 % 0 =B
+    ln 3 * 1 + lc 1 + lC x
+] sC # count length of collatz seq
+
+[
+    d 1000000 =Q
+    d 0 lC x
+    d lZ <E
+    sm d 1 + lF x
+] sF # loop
+0 sZ
+0 sY
+
+1 lF x
+lY p
