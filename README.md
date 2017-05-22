@@ -156,17 +156,18 @@ Solutions to project euler problems in various languages for http://pelangchanll
 <tr>
 <td>Whitespace</td>
 <td><a href="http://github.com/drsam94/PELC/blob/master/e36.ws">36</a></td><td>Groovy</td>
-<td><a href="http://github.com/drsam94/PELC/blob/master/e73.gvy">73</a></td><td>P&amp;P</td>
-<td><a href="http://github.com/drsam94/PELC/blob/master/e1.txt">1</a>,<a href="http://github.com/drsam94/PELC/blob/master/e5.txt">5</a>,<a href="http://github.com/drsam94/PELC/blob/master/e6.txt">6</a>,<a href="http://github.com/drsam94/PELC/blob/master/e8.txt">8</a></td></tr>
+<td><a href="http://github.com/drsam94/PELC/blob/master/e73.gvy">73</a></td><td>C2</td>
+<td><a href="http://github.com/drsam94/PELC/blob/master/e109.c2">109</a></td></tr>
 <tr>
 <td>Ajsone</td>
 <td><a href="http://github.com/drsam94/PELC/blob/master/e37.json">37</a></td><td>Genie</td>
 <td><a href="http://github.com/drsam94/PELC/blob/master/e74.gs">74</a></td><td>P&amp;P</td>
-<td><a href="http://github.com/drsam94/PELC/blob/master/e15.txt">15</a>,<a href="http://github.com/drsam94/PELC/blob/master/e25.txt">25</a>,<a href="http://github.com/drsam94/PELC/blob/master/e28.txt">28</a>,<a href="http://github.com/drsam94/PELC/blob/master/e69.txt">69</a></td></tr>
+<td><a href="http://github.com/drsam94/PELC/blob/master/e1.txt">1</a>,<a href="http://github.com/drsam94/PELC/blob/master/e5.txt">5</a>,<a href="http://github.com/drsam94/PELC/blob/master/e6.txt">6</a>,<a href="http://github.com/drsam94/PELC/blob/master/e8.txt">8</a></td></tr>
 <tr>
 <td>Postscript</td>
 <td><a href="http://github.com/drsam94/PELC/blob/master/e7.ps">7</a>,<a href="http://github.com/drsam94/PELC/blob/master/e50.ps">50</a>,<a href="http://github.com/drsam94/PELC/blob/master/e38.ps">38</a></td><td>Vala</td>
-<td><a href="http://github.com/drsam94/PELC/blob/master/e75.vala">75</a></td></tr>
+<td><a href="http://github.com/drsam94/PELC/blob/master/e75.vala">75</a></td><td>P&amp;P</td>
+<td><a href="http://github.com/drsam94/PELC/blob/master/e15.txt">15</a>,<a href="http://github.com/drsam94/PELC/blob/master/e25.txt">25</a>,<a href="http://github.com/drsam94/PELC/blob/master/e28.txt">28</a>,<a href="http://github.com/drsam94/PELC/blob/master/e69.txt">69</a></td></tr>
 <tr>
 <td>Gosu</td>
 <td><a href="http://github.com/drsam94/PELC/blob/master/e39.gsp">39</a></td><td>Forth</td>

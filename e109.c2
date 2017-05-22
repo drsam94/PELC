@@ -1,0 +1,62 @@
+module e109;
+
+import stdio;
+
+type Turn struct {
+    uint8 value;
+    uint8 modifier;
+}
+
+
+func uint16 turn_total(Turn *this)
+{
+    return this.value * this.modifier;
+}
+
+// Arbitrary, but strict ordering in order to avoid double counting
+func bool turn_le(Turn *this, Turn *other)
+{
+    return this == nil || (this.value < other.value || (
+        this.value == other.value && this.modifier <= other.modifier));
+}
+
+func bool canGoOutOn(uint8 val)
+{
+    return (val <= 40 && val % 2 == 0) || val == 50;
+}
+
+func uint32 waysToCheckout(uint8 target, uint8 numLeft, Turn *prev)
+{
+    uint32 ways = canGoOutOn(target);
+    if (numLeft == 1) {
+        return ways;
+    }
+
+    // Account for non-bullseye things
+    for (uint8 arcnum = 1; arcnum <= 20; ++arcnum) {
+        for (uint8 ring = 1; ring <= 3; ++ring) {
+            Turn t = { .value = arcnum, .modifier = ring }
+            if (t.total() < target && prev.le(&t)) {
+                ways += waysToCheckout(target - t.total(), numLeft - 1, &t);
+            }
+        }
+    }
+    // Bullseyes
+    for (uint8 bullval = 25; bullval <= 50; bullval += 25) {
+        Turn bull = { .value = bullval, .modifier = 1 }
+        if (bull.total() < target && prev.le(&bull)) {
+            ways += waysToCheckout(target - bull.total(), numLeft - 1, &bull);
+        }
+    }
+    return ways;
+}
+
+public func int32 main(int32 argc, char*[] argv)
+{
+    uint32 answer = 0;
+    for (uint8 target = 1; target < 100; ++target) {
+        answer += waysToCheckout(target, 3, nil);
+    }
+    stdio.printf("%u\n", answer);
+    return 0;
+}

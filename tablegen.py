@@ -103,7 +103,8 @@ extension = {
     "Swift"       : "swift",
     "Typescript"  : "ts",
     "C++TMP"      : "cpp",
-    "dc"          : "dc"
+    "dc"          : "dc",
+    "C2"          : "c2"
 }
 
 class TableItem:
