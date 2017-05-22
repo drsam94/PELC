@@ -1,7 +1,7 @@
 PELC
 ======
 
-Solutions to project euler problems in various languages for http://pelangchanllenge.blogspot.com<div><table border="1">
+Solutions to project euler problems in various languages for http://pelangchallenge.blogspot.com<div><table border="1">
 <tbody>
 <tr>
 <td>BrainFuck</td>
