@@ -61,8 +61,8 @@ if __name__ == "__main__":
                         continue
                     if a != a*a + b*d + c*g:
                         continue
-                    #if trace == 1 and lindep(a,d,g,c,f,i):
-                    #    continue
+                    if trace == 1 and not lindep(a,d,g,c,f,i):
+                        continue
                     hpos = []
                     if dependant:
                         hpos = range(-N, N + 1)
