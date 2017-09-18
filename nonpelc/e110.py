@@ -1,4 +1,4 @@
-from euler import primes, product, inf, memoize
+from euler import primes, product, inf
 
 # we want min { n | |{(x,y)| 1/x + 1/y = 1/n}| >= 1e6 }
 
@@ -24,14 +24,17 @@ from euler import primes, product, inf, memoize
 
 ps = primes(1000)
 THRESH = 4e6
+minanslen = 0
 def getans(asl, minans):
-    candidate = product(p**a for p,a in zip(ps, asl))
-    if candidate >= minans: 
+    global minanslen
+    candidate = product(p**a for p, a in zip(ps, asl))
+    if candidate >= minans:
         return minans
-    if product(2*a + 1 for a in asl) > 2*THRESH:
-        print((candidate, asl))
+    prod = product(2*a + 1 for a in asl)
+    if prod > 2*THRESH:
+        print((candidate, asl, product(2*a + 1 for a in asl)))
         minans = candidate
-
+        minanslen = len(asl)
     if all(a == 1 for a in asl):
         minans = getans(asl + [1], minans)
     for j in range(len(asl)):
@@ -39,9 +42,11 @@ def getans(asl, minans):
         ascpy[j] += 1
         if j > 0 and ascpy[j] > ascpy[j - 1]:
             continue
-        if ascpy[j] > 12: 
+        if ascpy[j] > 10:
             break
         minans = getans(ascpy, minans)
+        if len(asl) < minanslen - 2:
+            return minans
     return minans
 
 print(getans([], inf()))
