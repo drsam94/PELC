@@ -161,17 +161,18 @@ Solutions to project euler problems in various languages for http://pelangchalle
 <tr>
 <td>Ajsone</td>
 <td><a href="http://github.com/drsam94/PELC/blob/master/e37.json">37</a></td><td>Genie</td>
-<td><a href="http://github.com/drsam94/PELC/blob/master/e74.gs">74</a></td><td>P&amp;P</td>
-<td><a href="http://github.com/drsam94/PELC/blob/master/e1.txt">1</a>,<a href="http://github.com/drsam94/PELC/blob/master/e5.txt">5</a>,<a href="http://github.com/drsam94/PELC/blob/master/e6.txt">6</a>,<a href="http://github.com/drsam94/PELC/blob/master/e8.txt">8</a></td></tr>
+<td><a href="http://github.com/drsam94/PELC/blob/master/e74.gs">74</a></td><td>Crystal</td>
+<td><a href="http://github.com/drsam94/PELC/blob/master/e110.cry">110</a></td></tr>
 <tr>
 <td>Postscript</td>
 <td><a href="http://github.com/drsam94/PELC/blob/master/e7.ps">7</a>,<a href="http://github.com/drsam94/PELC/blob/master/e50.ps">50</a>,<a href="http://github.com/drsam94/PELC/blob/master/e38.ps">38</a></td><td>Vala</td>
 <td><a href="http://github.com/drsam94/PELC/blob/master/e75.vala">75</a></td><td>P&amp;P</td>
-<td><a href="http://github.com/drsam94/PELC/blob/master/e15.txt">15</a>,<a href="http://github.com/drsam94/PELC/blob/master/e25.txt">25</a>,<a href="http://github.com/drsam94/PELC/blob/master/e28.txt">28</a>,<a href="http://github.com/drsam94/PELC/blob/master/e69.txt">69</a></td></tr>
+<td><a href="http://github.com/drsam94/PELC/blob/master/e1.txt">1</a>,<a href="http://github.com/drsam94/PELC/blob/master/e5.txt">5</a>,<a href="http://github.com/drsam94/PELC/blob/master/e6.txt">6</a>,<a href="http://github.com/drsam94/PELC/blob/master/e8.txt">8</a></td></tr>
 <tr>
 <td>Gosu</td>
 <td><a href="http://github.com/drsam94/PELC/blob/master/e39.gsp">39</a></td><td>Forth</td>
-<td><a href="http://github.com/drsam94/PELC/blob/master/e9.fs">9</a>,<a href="http://github.com/drsam94/PELC/blob/master/e76.fs">76</a></td></tr>
+<td><a href="http://github.com/drsam94/PELC/blob/master/e9.fs">9</a>,<a href="http://github.com/drsam94/PELC/blob/master/e76.fs">76</a></td><td>P&amp;P</td>
+<td><a href="http://github.com/drsam94/PELC/blob/master/e15.txt">15</a>,<a href="http://github.com/drsam94/PELC/blob/master/e25.txt">25</a>,<a href="http://github.com/drsam94/PELC/blob/master/e28.txt">28</a>,<a href="http://github.com/drsam94/PELC/blob/master/e69.txt">69</a></td></tr>
 <tr>
 <td>Rust</td>
 <td><a href="http://github.com/drsam94/PELC/blob/master/e40.rs">40</a></td><td>Hack</td>

@@ -1,0 +1,100 @@
+# We want to minimize { n | count((x,y) | 1/x + 1/y = 1/n) >= 1e6 }
+# Now,
+# 1/n - 1/y = 1/x is equivalent to
+# (y - n)/ny = 1/x
+# ny % (y - n) == 0)
+#
+# So our condition becomes
+# min { n | count(y > n | ny % (y - n) == 0) >= 1e6 }
+# but if we write y = n + k, this becomes
+# n(n + k) % k == 0, which is equivalent to
+# n^2 + nk % k == 0,
+# n^2 % k == 0
+# So, we want the min n such that the #divieros of n^2 is > 1e6
+# But searching in terms of prime factorizations, we want
+# prime factors [a_0, a_1, a_2, ...]
+# such that prod(2*a_i + 1) > 1e6 [#divisors of n^2]
+# and prod(p_i**a_i) is minimized [n itself]
+
+def primes(bound)
+  ps = [2,3,5,7] of UInt64
+  n = 11_u64
+  while n < bound
+    i = 0
+    p = ps[i]
+    isPrime = true
+    while p*p <= n
+      if n % p == 0
+        isPrime = false
+  	  	break
+      end
+      i += 1
+      p = ps[i]
+    end
+	if isPrime
+	  ps << n
+    end
+    n += 1
+  end
+  return ps
+end
+
+def getans(asl, minans, minanslen, ps)
+  candidate = 1_u64
+  i = 0
+  if asl.size() > 15
+    return minans
+  end
+  while i < asl.size()
+    pcan = candidate
+    candidate *= ps[i] ** asl[i]
+    if candidate >= minans
+      return minans
+    end
+    if candidate / pcan != ps[i] ** asl[i]
+      return minans
+    end
+    i += 1
+  end
+  prod = 1_u64
+  i = 0
+  is_all = true
+  while i < asl.size()
+    prod *= 2*asl[i] + 1
+    if asl[i] != 1
+      is_all = false
+    end
+    i += 1
+  end
+  if prod > 8 * (10_u64**6)
+    p candidate
+    p prod
+    p asl
+    minans = candidate
+    minanslen = asl.size()
+  end
+  if is_all
+    ascpy = asl.dup()
+    ascpy << 1_u64
+    minans = getans(ascpy, minans, minanslen, ps)
+  end
+  i = 0
+  while i < asl.size()
+    ascpy = asl.dup()
+    ascpy[i] += 1
+    if i > 0 && ascpy[i] > ascpy[i - 1]
+      i += 1
+      next
+    end
+    if ascpy[i] > 10
+      break
+    end
+    minans = getans(ascpy, minans, minanslen, ps)
+    if asl.size() < minanslen - 2
+      return minans
+    end
+    i += 1
+  end
+  return minans
+end
+p getans([] of UInt64, ~(0_u64), 0, primes(1000))

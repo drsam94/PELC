@@ -104,7 +104,8 @@ extension = {
     "Typescript"  : "ts",
     "C++TMP"      : "cpp",
     "dc"          : "dc",
-    "C2"          : "c2"
+    "C2"          : "c2",
+    "Crystal"     : "cry"
 }
 
 class TableItem:
@@ -167,15 +168,15 @@ print '</tbody></table></div>'
 """
 
 def printTableLine(index):
-    print '<tr>'
+    print('<tr>')
     i = 0
     while index + i*partSize < len(table):
         elem = table[index + i*partSize]
         sys.stdout.write("<td>%s</td>\n<td>%s</td>" % (elem.lang, elem.text))
         i += 1
-    print '</tr>'
+    print('</tr>')
 
-print '<div><table border="1">\n<tbody>'
+print('<div><table border="1">\n<tbody>')
 for i in range(partSize):
     printTableLine(i)
-print '</tbody></table></div>'
+print('</tbody></table></div>')
