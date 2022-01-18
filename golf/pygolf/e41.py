@@ -8,6 +8,6 @@ m=1
 for n in R(4,10):
  for i in R(f(n)):
   k=0
-  for z in L(i,[],list(R(1,n+1))):k*=10;k+=z
-  if all(k%i for i in R(2,int(k**.5+1))):m=max(m,k)
+  for z in L(i,[],list(R(1,n+1))):k=k*10+z
+  m=max(m,k*all(k%i for i in R(2,int(k**.5+1))))
 print(m)
